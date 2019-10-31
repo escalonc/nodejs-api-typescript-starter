@@ -1,5 +1,5 @@
 describe("Todo controller", () => {
-  test("controller should return a collection", () => {
+  test("returns someything", () => {
     expect(true).toBe(true);
   });
 });
