@@ -4,17 +4,18 @@
   "description": "Node.js api boilerplate built on TypeScript",
   "main": "index.js",
   "scripts": {
-    "start": "node ",
+    "start": "node dist/index.js",
     "build": "tsc",
     "test": "jest",
     "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "dev": "nodemon --exec ts-node ./src/index.ts",
     "dev:debug": "nodemon --inspect src/index.ts",
-    "lint": "tslint -p .",
-    "format": "prettier --write \"**/*.{ts,json,md,graphql}\"",
-    "validate": "npm run format && npm run lint",
-    "precommit": "lint-staged && npm run test"
+    "lint": "eslint src/**/*.ts",
+    "format": "yarn prettier -- --write",
+    "prettier": "prettier \"**/*.{ts,json,md,graphql}\"",
+    "validate": "yarn lint && yarn format && npm run prettier -- --list-different && yarn build",
+    "precommit": "lint-staged && yarn test"
   },
   "jest": {
     "preset": "ts-jest"
@@ -36,6 +37,7 @@
   },
   "homepage": "https://github.com/escalonc/nodejs-api-typescript-starter#readme",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.10.2",
@@ -66,6 +68,9 @@
     "@types/node": "^12.12.0",
     "@types/signale": "^1.2.1",
     "@types/swagger-ui-express": "^3.0.1",
+    "@typescript-eslint/parser": "^2.6.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "lint-staged": "^9.4.2",
@@ -73,8 +78,6 @@
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
-    "tslint": "^5.20.0",
-    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.4"
   }
 }
