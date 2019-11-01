@@ -12,6 +12,7 @@ Node.js api boilerplate built on TypeScript
 
 ## Future Roadmap
 
+- Improve debugging setup for vscode
 - Authentication and Authorization (jwt)
 - Base controller
 - Catching 404

@@ -10,12 +10,12 @@
     "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "dev": "nodemon --exec ts-node ./src/index.ts",
-    "dev:debug": "nodemon --inspect src/index.ts",
+    "dev:debug": "nodemon --inspect ./src/index.ts",
     "lint": "eslint src/**/*.ts",
-    "format": "yarn prettier -- --write",
+    "format": "npm run prettier -- --write",
     "prettier": "prettier \"**/*.{ts,json,md,graphql}\"",
-    "validate": "yarn lint && yarn format && npm run prettier -- --list-different && yarn build",
-    "precommit": "lint-staged && yarn test"
+    "validate": "npm run lint && npm run format && npm run prettier -- --list-different && npm run build",
+    "precommit": "lint-staged && npm run test"
   },
   "jest": {
     "preset": "ts-jest"
