@@ -4,7 +4,7 @@
   "description": "Node.js api boilerplate built on TypeScript",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node ./dist/index.js",
     "build": "tsc",
     "test": "jest",
     "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
