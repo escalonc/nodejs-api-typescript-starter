@@ -36,4 +36,4 @@ There are others boilerplates, but in this one I'm including my personal prefere
 ## Disclaimer
 
 This template is still working in progress,
-the architecture used in this boilerplate is for general purposes
+the architecture used in this boilerplate is for general purposes.
