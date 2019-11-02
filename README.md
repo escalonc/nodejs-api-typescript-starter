@@ -8,6 +8,10 @@ A time saver API boilerplate built on TypeScript
 
 There are others boilerplates, but in this one I'm including my personal preferences. My proposal is to help other people finding good practices and create projects faster with this boilerplate.
 
+## Project structure explanation
+
+- WIP
+
 ## Packages Included
 
 - Express.js (Web server)
