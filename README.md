@@ -6,7 +6,9 @@ A time saver API boilerplate built on TypeScript
 
 ## Motivation
 
-There are others boilerplates, but in this one I'm including my personal preferences. My proposal is to help other people finding good practices and create projects faster with this boilerplate.
+There are others boilerplates, but in this one I'm including my personal
+preferences. My proposal is to help other people finding good practices and
+create projects faster with this boilerplate.
 
 ## Project structure explanation
 
@@ -27,7 +29,6 @@ There are others boilerplates, but in this one I'm including my personal prefere
 - Base controller
 - Catching 404
 - Set up events
-- Model validation
 - Swagger docs
 - Unit testing (jest)
 - Object mapping
@@ -39,5 +40,5 @@ There are others boilerplates, but in this one I'm including my personal prefere
 
 ## Disclaimer
 
-This template is still working in progress,
-the architecture used in this boilerplate is for general purposes.
+This template is still working in progress, the architecture used in this
+boilerplate is for general purposes.

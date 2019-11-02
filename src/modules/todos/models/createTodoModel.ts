@@ -1,4 +1,4 @@
-import {Length} from "class-validator";
+import {Length} from 'class-validator';
 
 export default class CreateTodoModel {
   @Length(10, 50)

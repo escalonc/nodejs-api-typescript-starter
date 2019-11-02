@@ -1,20 +1,18 @@
-import bodyParser from "body-parser";
-import compression from "compression";
-import cors from "cors";
-import dotenv from "dotenv";
-import express, {Application} from "express";
-import helmet from "helmet";
-import morgan from "morgan";
-import "reflect-metadata";
+import bodyParser from 'body-parser';
+import compression from 'compression';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express, {Application} from 'express';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import 'reflect-metadata';
 import {
   useContainer as routingUseContainer,
   useExpressServer,
-} from "routing-controllers";
-import signale from "signale";
-import swaggerUi from "swagger-ui-express";
-import {Container} from "typedi";
-import {createConnection, useContainer as ormUseContainer} from "typeorm";
-import swaggerDocument from "./swagger.json";
+} from 'routing-controllers';
+import signale from 'signale';
+import {Container} from 'typedi';
+import {createConnection, useContainer as ormUseContainer} from 'typeorm';
 
 dotenv.config();
 
@@ -36,7 +34,7 @@ export default class Server {
 
   private static configureDatabase(): void {
     createConnection().catch(error =>
-      signale.error("Error when trying to create a database", error)
+      signale.error('Error when trying to create a database', error)
     );
   }
 
@@ -53,11 +51,6 @@ export default class Server {
     this.app.use(bodyParser.urlencoded({extended: true}));
     this.app.use(bodyParser.json());
     this.app.use(helmet());
-    this.app.use(morgan("dev"));
-    this.app.use(
-      "/api-docs",
-      swaggerUi.serve,
-      swaggerUi.setup(swaggerDocument)
-    );
+    this.app.use(morgan('dev'));
   }
 }
