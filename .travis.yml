@@ -6,4 +6,4 @@ cache:
 npm: false
 
 before_script:
-  - npm run build
+  - npm run validate

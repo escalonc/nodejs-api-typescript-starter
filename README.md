@@ -1,13 +1,19 @@
 # Node.js API TypeScript Starter
 
-Node.js api boilerplate built on TypeScript
+A time saver API boilerplate built on TypeScript
+
+![Build status](https://travis-ci.com/escalonc/nodejs-api-typescript-starter.svg?branch=master)
+
+## Motivation
+
+There are others boilerplates, but in this one I'm including my personal preferences. My proposal is to help other people finding good practices and create projects faster with this boilerplate.
 
 ## Packages Included
 
 - Express.js (Web server)
 - PostgreSQL (Default database)
 - Prettier (Code formatting stuff)
-- TSLint (Static code analyzer)
+- ESLint (Static code analyzer)
 - TypeORM (Database access)
 
 ## Future Roadmap
