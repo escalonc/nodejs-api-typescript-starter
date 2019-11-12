@@ -6,8 +6,6 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN npm i postgres
-
 COPY . .
 
 EXPOSE 8080
