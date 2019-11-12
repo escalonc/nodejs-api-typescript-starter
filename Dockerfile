@@ -6,7 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN npm install mongodb
+RUN npm i postgres
+
 COPY . .
 
 EXPOSE 8080
