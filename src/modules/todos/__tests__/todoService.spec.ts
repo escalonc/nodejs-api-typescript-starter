@@ -6,8 +6,8 @@ const mockRepository: jest.Mocked<TodoRepository> = new TodoRepository() as any;
 mockRepository.find.mockImplementation(
   () =>
     new Promise(resolve =>
-      resolve([{id: 1, name: 'Go to meet'}, {id: 2, name: 'Example'}])
-    )
+      resolve([{id: 1, name: 'Go to meet'}, {id: 2, name: 'Example'}]),
+    ),
 );
 
 test('getAll returns a collection of todos', async () => {

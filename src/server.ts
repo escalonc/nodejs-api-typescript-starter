@@ -34,7 +34,7 @@ export default class Server {
 
   private static configureDatabase(): void {
     createConnection().catch(error =>
-      signale.error('Error when trying to create a database', error)
+      signale.error('Error when trying to create a database', error),
     );
   }
 
