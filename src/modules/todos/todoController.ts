@@ -1,4 +1,4 @@
-import {Body, Get, HttpCode, JsonController, Post} from "routing-controllers";
+import { Body, Get, HttpCode, JsonController, Post } from "routing-controllers";
 import CreateTodoModel from "./models/createTodoModel";
 import TodoEntity from "./todoEntity";
 import TodoService from "./todoService";
@@ -16,7 +16,7 @@ export default class TodoController {
   @Post()
   @HttpCode(201)
   public async post(@Body() todo: CreateTodoModel) {
-    const entity: TodoEntity = {id: 0, name: todo.name};
+    const entity: TodoEntity = { id: 0, name: todo.name };
     const createdTodo = await this.todoService.create(entity);
 
     return createdTodo;

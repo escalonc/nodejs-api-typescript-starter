@@ -11,7 +11,7 @@ server.on("listening", onListing);
 server.on("error", onError);
 
 function onListing() {
-  signale.success("server listening on port:", config.PORT);
+  signale.success("🚀  server listening on port:", config.PORT);
 }
 
 function onError(error: any) {
