@@ -27,8 +27,6 @@ There are others boilerplates, but in this one I'm including my personal prefere
 - Base controller
 - Catching 404
 - Set up events
-- Model validation
-- Swagger docs
 - Unit testing (jest)
 - Object mapping
 - Configure sorting and filtering

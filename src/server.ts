@@ -16,10 +16,17 @@ import signale from "signale";
 import swaggerUi from "swagger-ui-express";
 import { Container } from "typedi";
 import { createConnection, useContainer as ormUseContainer } from "typeorm";
+import { validationMetadatasToSchemas } from "class-validator-jsonschema";
+import { getFromContainer, MetadataStorage } from "class-validator";
 
 dotenv.config();
 
 export default class Server {
+  private static readonly controllersConfig = {
+    controllers: [`${__dirname}/**/*Controller.{ts,js}`],
+    cors: true,
+  };
+
   public static bootstrap(): Application {
     this.configureServices();
     this.configureDatabase();
@@ -43,13 +50,22 @@ export default class Server {
   }
 
   private static configureRoutes(): void {
-    useExpressServer(this.app, {
-      controllers: [`${__dirname}/**/*Controller.{ts,js}`],
-      cors: true,
-    });
+    useExpressServer(this.app, this.controllersConfig);
 
+    const metadatas = (getFromContainer(MetadataStorage) as any)
+      .validationMetadatas;
+    const schemas = validationMetadatasToSchemas(metadatas, {
+      refPointerPrefix: "#/components/schemas/",
+    });
     const storage = getMetadataArgsStorage();
-    const spec = routingControllersToSpec(storage as any);
+    const spec = routingControllersToSpec(
+      storage as any,
+      this.controllersConfig,
+      {
+        components: { schemas },
+        info: { title: "Node.js TypeScript API Boilerplate", version: "1.0.0" },
+      },
+    );
     this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spec));
   }
 

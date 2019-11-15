@@ -1,4 +1,4 @@
-import {createServer} from "http";
+import { createServer } from "http";
 import signale from "signale";
 import config from "./config";
 import ApplicationServer from "./server";
