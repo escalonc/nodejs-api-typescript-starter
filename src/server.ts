@@ -22,7 +22,7 @@ import { getFromContainer, MetadataStorage } from "class-validator";
 dotenv.config();
 
 export default class Server {
-  private static readonly controllersConfig = {
+  private static readonly controllersConfiguration = {
     controllers: [`${__dirname}/**/*Controller.{ts,js}`],
     cors: true,
   };
@@ -50,7 +50,7 @@ export default class Server {
   }
 
   private static configureRoutes(): void {
-    useExpressServer(this.app, this.controllersConfig);
+    useExpressServer(this.app, this.controllersConfiguration);
 
     const metadatas = (getFromContainer(MetadataStorage) as any)
       .validationMetadatas;
@@ -60,7 +60,7 @@ export default class Server {
     const storage = getMetadataArgsStorage();
     const spec = routingControllersToSpec(
       storage as any,
-      this.controllersConfig,
+      this.controllersConfiguration,
       {
         components: { schemas },
         info: { title: "Node.js TypeScript API Boilerplate", version: "1.0.0" },
