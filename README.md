@@ -24,19 +24,18 @@ create projects faster with this boilerplate.
 
 ## Future Roadmap
 
-- Improve debugging setup for vscode
-- Authentication and Authorization (jwt)
-- Base controller
-- Catching 404
-- Set up events
-- Swagger docs
-- Unit testing (jest)
-- Object mapping
-- Configure sorting and filtering
-- Verify a rest api check list
-- Path aliases
-- Validate configuration
-- Logging
+- 🐛 Improve debugging setup for vscode
+- 👮🏼‍ Authentication and Authorization (jwt)
+- 🕹 Base controller
+- 🙅 Catching 404
+- 🎟 Set up events
+- ⛑ Unit testing (jest)
+- 📝 Object mapping
+- 🕵️‍♀️ Configure sorting and filtering
+- ✅ Verify a rest api check list
+- 🛣 Path aliases
+- 👍 Validate configuration
+- 📓 Logging
 
 ## Disclaimer
 

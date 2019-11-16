@@ -1,4 +1,4 @@
-import {createServer} from 'http';
+import { createServer } from 'http';
 import signale from 'signale';
 import config from './config';
 import ApplicationServer from './server';
@@ -11,7 +11,7 @@ server.on('listening', onListing);
 server.on('error', onError);
 
 function onListing() {
-  signale.success('server listening on port:', config.PORT);
+  signale.success('🚀  server listening on port:', config.PORT);
 }
 
 function onError(error: any) {
