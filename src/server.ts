@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import express, { Application } from 'express';
+import express, {Application} from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import 'reflect-metadata';
@@ -11,13 +11,13 @@ import {
   useExpressServer,
   getMetadataArgsStorage,
 } from 'routing-controllers';
-import { routingControllersToSpec } from 'routing-controllers-openapi';
+import {routingControllersToSpec} from 'routing-controllers-openapi';
 import signale from 'signale';
 import swaggerUi from 'swagger-ui-express';
-import { Container } from 'typedi';
-import { createConnection, useContainer as ormUseContainer } from 'typeorm';
-import { validationMetadatasToSchemas } from 'class-validator-jsonschema';
-import { getFromContainer, MetadataStorage } from 'class-validator';
+import {Container} from 'typedi';
+import {createConnection, useContainer as ormUseContainer} from 'typeorm';
+import {validationMetadatasToSchemas} from 'class-validator-jsonschema';
+import {getFromContainer, MetadataStorage} from 'class-validator';
 
 dotenv.config();
 
@@ -62,8 +62,8 @@ export default class Server {
       storage as any,
       this.controllersConfiguration,
       {
-        components: { schemas },
-        info: { title: 'Node.js TypeScript API Boilerplate', version: '1.0.0' },
+        components: {schemas},
+        info: {title: 'Node.js TypeScript API Boilerplate', version: '1.0.0'},
       },
     );
     this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(spec));
@@ -72,7 +72,7 @@ export default class Server {
   private static configureMiddleware(): void {
     this.app.use(cors());
     this.app.use(compression());
-    this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use(bodyParser.urlencoded({extended: true}));
     this.app.use(bodyParser.json());
     this.app.use(helmet());
     this.app.use(morgan('dev'));
