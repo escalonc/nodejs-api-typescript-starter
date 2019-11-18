@@ -1,8 +1,8 @@
-import signale from 'signale';
-import {Service} from 'typedi';
-import {InjectRepository} from 'typeorm-typedi-extensions';
-import TodoEntity from './todoEntity';
-import TodoRepository from './todoRepository';
+import signale from "signale";
+import {Service} from "typedi";
+import {InjectRepository} from "typeorm-typedi-extensions";
+import TodoEntity from "./todoEntity";
+import TodoRepository from "./todoRepository";
 
 @Service()
 export default class TodoService {

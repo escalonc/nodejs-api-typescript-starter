@@ -17,7 +17,20 @@
     "validate": "npm run lint && npm run format && npm run prettier -- --list-different && npm run build"
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts?$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ]
   },
   "husky": {
     "hooks": {
