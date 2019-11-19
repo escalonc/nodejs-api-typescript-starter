@@ -1,11 +1,15 @@
-// import request from 'supertest';
-// import ApplicationServer from '../../../server';
+import request from "supertest";
+import ApplicationServer from "../../../server";
+import {Container} from "typedi";
+import DefaultConnectionFactory from "../../../data/factories/defaultConnectionFactory";
 
-// const app = ApplicationServer.bootstrap();
+const app = new ApplicationServer(
+  Container.get(DefaultConnectionFactory),
+).bootstrap();
 
 test("returns something", () => {
-  // request(app)
-  //   .get('/todoaas')
-  //   .expect('Content-Type', /json/)
-  //   .expect(200);
+  request(app)
+    .get("/todo")
+    .expect("Content-Type", /json/)
+    .expect(200);
 });

@@ -15,19 +15,22 @@ import {routingControllersToSpec} from "routing-controllers-openapi";
 import signale from "signale";
 import swaggerUi from "swagger-ui-express";
 import {Container} from "typedi";
-import {createConnection, useContainer as ormUseContainer} from "typeorm";
+import {useContainer as ormUseContainer} from "typeorm";
 import {validationMetadatasToSchemas} from "class-validator-jsonschema";
 import {getFromContainer, MetadataStorage} from "class-validator";
+import DatabaseConnectionFactory from "data/factories/databaseConnectionFactory";
 
 dotenv.config();
 
 export default class Server {
-  private static readonly controllersConfiguration = {
+  private readonly controllersConfiguration = {
     controllers: [`${__dirname}/**/*Controller.{ts,js}`],
     cors: true,
   };
 
-  public static bootstrap(): Application {
+  constructor(private readonly connectionFactory: DatabaseConnectionFactory) {}
+
+  public bootstrap(): Application {
     this.configureServices();
     this.configureDatabase();
     this.configureMiddleware();
@@ -36,20 +39,22 @@ export default class Server {
     return this.app;
   }
 
-  private static app: Application = express();
+  private app: Application = express();
 
-  private static configureServices(): void {
+  private configureServices(): void {
     routingUseContainer(Container);
     ormUseContainer(Container);
   }
 
-  private static configureDatabase(): void {
-    // createConnection().catch(error =>
-    //   signale.error('Error when trying to create a database', error),
-    // );
+  private configureDatabase(): void {
+    this.connectionFactory
+      .create()
+      .catch(error =>
+        signale.error("Error when trying to create a database", error),
+      );
   }
 
-  private static configureRoutes(): void {
+  private configureRoutes(): void {
     useExpressServer(this.app, this.controllersConfiguration);
 
     const metadatas = (getFromContainer(MetadataStorage) as any)
@@ -69,7 +74,7 @@ export default class Server {
     this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spec));
   }
 
-  private static configureMiddleware(): void {
+  private configureMiddleware(): void {
     this.app.use(cors());
     this.app.use(compression());
     this.app.use(bodyParser.urlencoded({extended: true}));

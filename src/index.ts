@@ -2,9 +2,13 @@ import {createServer} from "http";
 import signale from "signale";
 import config from "./config";
 import ApplicationServer from "./server";
+import DefaultConnectionFactory from "./data/factories/defaultConnectionFactory";
+import {Container} from "typedi";
 
-const applicationServer = ApplicationServer.bootstrap();
-const server = createServer(applicationServer);
+const app = new ApplicationServer(
+  Container.get(DefaultConnectionFactory),
+).bootstrap();
+const server = createServer(app);
 
 server.listen(config.PORT);
 server.on("listening", onListing);
