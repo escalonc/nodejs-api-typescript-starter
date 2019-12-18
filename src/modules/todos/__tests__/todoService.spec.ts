@@ -27,7 +27,7 @@ test('getAll returns a collection of todos', async () => {
 beforeEach(() => {
   return createConnection({
     type: "sqlite",
-    database: ":memory",
+    database: ":memory:",
     dropSchema: true,
     entities: [TodoEntity],
     synchronize: true,
