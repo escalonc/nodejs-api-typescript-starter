@@ -4,7 +4,7 @@ import TodoEntity from "../todoEntity";
 beforeEach(() => {
   return createConnection({
     type: "sqlite",
-    database: ":memory",
+    database: ":memory:",
     dropSchema: true,
     entities: [TodoEntity],
     synchronize: true,
