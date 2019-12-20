@@ -20,5 +20,5 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "exclude": ["node_modules", "src/migrations"]
+  "exclude": ["node_modules", "src/data/migrations", "src/**/__tests__"]
 }
