@@ -1,7 +1,7 @@
-import {EntityRepository, Repository} from "typeorm";
-import TodoEntity from "./todoEntity";
+import { EntityRepository, Repository } from 'typeorm';
+import TodoEntity from './todoEntity';
 
-import {Service} from "typedi";
+import { Service } from 'typedi';
 
 @Service()
 @EntityRepository(TodoEntity)

@@ -18,13 +18,16 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "setupFiles": [
+      "dotenv/config"
+    ],
     "roots": [
       "<rootDir>/src"
     ],
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts?$",
+    "testRegex": "(/__tests__/.*|(\\.|/)(spec))\\.ts?$",
     "moduleFileExtensions": [
       "ts",
       "js",

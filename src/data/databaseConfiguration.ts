@@ -3,7 +3,7 @@ export default interface DatabaseConfiguration {
   type: string;
   host: string;
   port: number;
-  username: "test";
-  password: "test";
-  database: "test";
+  username: 'test';
+  password: 'test';
+  database: 'test';
 }
