@@ -23,7 +23,3 @@ test('getAll returns a collection of todos', async () => {
     { id: 2, name: 'Example' }
   ]);
 });
-
-test('check env', () => {
-  expect(process.env.SOMETHING).toBe('WORK');
-});
