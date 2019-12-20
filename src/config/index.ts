@@ -1,7 +1,7 @@
 import defaultConfiguration from './default';
 
 const environment = process.env.NODE_ENV || 'development';
-const environmentConfiguration = import(`./${environment}`);
+const environmentConfiguration = require(`./${environment}`).default;
 
 const mergedConfig: any = {
   ...defaultConfiguration,

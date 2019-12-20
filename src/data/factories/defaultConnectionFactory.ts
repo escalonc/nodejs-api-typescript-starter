@@ -13,7 +13,11 @@ export default class DefaultConnectionFactory
       port: config.DATABASE_PORT,
       username: config.DATABASE_USERNAME,
       password: config.DATABASE_PASSWORD,
-      database: config.DATABASE_NAME
+      database: config.DATABASE_NAME,
+      entities: config.ENTITIES_PATH,
+      migrations: config.MIGRATIONS,
+      synchronize: config.DATABASE_SYNCHRONIZE ?? false,
+      dropSchema: config.DATABASE_DROP_SCHEMA ?? false
     });
   }
 }

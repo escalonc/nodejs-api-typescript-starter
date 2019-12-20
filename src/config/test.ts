@@ -1,10 +1,9 @@
 const config = {
   DATABASE_TYPE: 'sqlite',
-  DATABASE_HOST: 'localhost',
-  DATABASE_USERNAME: 'postgres',
-  DATABASE_PASSWORD: 'admin',
-  DATABASE_NAME: 'my_todos',
-  DATABASE_PORT: 5432
+  DATABASE_DROP_SCHEMA: true,
+  DATABASE_SYNCHRONIZE: true,
+  DATABASE_NAME: ':memory:',
+  DATABASE_PORT: null
 };
 
 export default config;
